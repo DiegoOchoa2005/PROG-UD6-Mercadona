@@ -11,54 +11,16 @@ public class Customer {
     private String bloodType;
     private boolean isLatam;
 
+    private String[] bloodTypes = { "A+", "O+", "B+", "AB+", "A-", "O-", "B-", "AB-" };
+
     private Stack<String> shoppingBasket = new Stack<>();
 
-    public Customer(String dni, String phoneNum, String bloodType, boolean isLatam) {
-        this.name = this.saveName();
-        this.dni = dni;
-        this.phoneNum = phoneNum;
-        this.bloodType = bloodType;
-        this.isLatam = isLatam;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDni() {
-        return this.dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public String getPhoneNum() {
-        return this.phoneNum;
-    }
-
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
-    }
-
-    public String getBloodType() {
-        return this.bloodType;
-    }
-
-    public void setBloodType(String bloodType) {
-        this.bloodType = bloodType;
-    }
-
-    public boolean isLatam() {
-        return this.isLatam;
-    }
-
-    public void setLatam(boolean isLatam) {
-        this.isLatam = isLatam;
+    public Customer() {
+        this.name = this.getName();
+        this.dni = this.getDni();
+        this.phoneNum = this.getPhoneNum();
+        this.bloodType = this.getBloodType();
+        this.isLatam = this.isLatam();
     }
 
     public void fillBasket() {
@@ -69,8 +31,59 @@ public class Customer {
         }
     }
 
-    private String saveName() {
+    private String showProducts() {
+        if (this.shoppingBasket.size() != 0) {
+            String productName = "";
+            for (int i = 0; i < shoppingBasket.size(); i++) {
+                productName += "\tNombre del producto Nº" + (i + 1) + ": " + this.shoppingBasket.get(i) + "\n";
+            }
+            return productName;
+        } else {
+            return "\tNo hay productos en la cesta.";
+        }
+    }
+
+    private String getName() {
         return RandomElements.randomName();
+    }
+
+    private String getDni() {
+        String letters = "TRWAGMYFPDXBNJZSQVHLCKE";
+        int numDni = (int) (Math.random() * (90000000 - 10000000) + 10000000);
+        int rest = numDni % 23;
+        String letraDni = String.valueOf(letters.charAt(rest));
+
+        return numDni + letraDni;
+    }
+
+    private String getPhoneNum() {
+        String numPhone = String.valueOf((int) (Math.random() * (699999999 - 600000000) + 600000000));
+        return "+34 " + numPhone;
+    }
+
+    private String getBloodType() {
+        int bloodSelected = (int) (Math.random() * (bloodTypes.length + 1) - 1);
+        return bloodTypes[bloodSelected];
+    }
+
+    // Estoy practicando pa' trabajar en el tranvia
+    public boolean isLatam() {
+        int latamSelector = (int) (Math.random() * (2 - 1) + 1);
+        return latamSelector == 1 ? true : false;
+    }
+
+    @Override
+    public String toString() {
+        String confirmLatam = this.isLatam == true ? "si, por desgracia" : "no, se salva";
+        return "===================================\n" +
+                "* Nombre:" + this.name + "\n" +
+                "* DNI:" + this.dni + "\n" +
+                "* Numero de telefono:" + this.phoneNum + "\n" +
+                "* Tipo de sangre:" + this.bloodType + "\n" +
+                "* ¿Es latino?:" + confirmLatam + "\n" +
+                "* Total de productos:" + shoppingBasket.size() + "\n" +
+                "* Lista de articulos en la cesta:\n" + this.showProducts() +
+                "\n===================================\n";
     }
 
 }
