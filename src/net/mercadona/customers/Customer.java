@@ -68,7 +68,7 @@ public class Customer {
 
     // Estoy practicando pa' trabajar en el tranvia
     public boolean isLatam() {
-        int latamSelector = (int) (Math.random() * (2 - 1) + 1);
+        int latamSelector = (int) (Math.random() * (10 - 1) + 1);
         return latamSelector == 1 ? true : false;
     }
 
