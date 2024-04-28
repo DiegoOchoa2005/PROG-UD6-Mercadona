@@ -16,7 +16,7 @@ public class Customer {
     private Stack<String> shoppingBasket = new Stack<>();
 
     public Customer() {
-        this.name = this.getName();
+        this.name = this.randomCustomerName();
         this.dni = this.getDni();
         this.phoneNum = this.getPhoneNum();
         this.bloodType = this.getBloodType();
@@ -43,7 +43,11 @@ public class Customer {
         }
     }
 
-    private String getName() {
+    public String getName() {
+        return this.name;
+    }
+
+    private String randomCustomerName() {
         return RandomElements.randomName();
     }
 

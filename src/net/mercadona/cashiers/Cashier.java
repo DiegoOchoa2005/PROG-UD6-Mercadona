@@ -37,7 +37,7 @@ public class Cashier {
 
     public void serveClient() {
         if (this.customerQueue.size() != 0) {
-            System.out.println("Se ha atendido a " + this.customerQueue.poll());
+            System.out.println("Se ha atendido a " + this.customerQueue.poll().getName());
         } else {
             System.out.println("ERROR: No se pudo atender al cliente.\nMOTIVO: No hay clientes en fila.");
         }
@@ -45,10 +45,11 @@ public class Cashier {
 
     private String showCustomer() {
         if (this.customerQueue.size() != 0) {
-            Queue<Customer> customerList = customerQueue;
+            Queue<Customer> customerList = new LinkedList<>();
+            customerList.addAll(customerQueue);
             String customerName = "";
 
-            for (int i = 0; i <= customerQueue.size(); i++) {
+            for (int i = 0; i < customerQueue.size(); i++) {
                 customerName += "\tCliente Nº " + (i + 1) + ":\n" + customerList.poll() + "\n";
             }
             
@@ -67,7 +68,7 @@ public class Cashier {
         return "===================================\n" +
                 "* Número de caja:" + this.cashierBoxNum + "\n" +
                 "* Total de clientes:" + this.totalCustomers + "\n" +
-                "* Clientes en la fila:\n" + this.showCustomer() +
+                "* Clientes en la fila:\n" + "\n" + this.showCustomer() +
                 "\n===================================\n";
     }
 }
