@@ -37,7 +37,7 @@ public class Cashier {
 
     public void serveClient() {
         if (this.customerQueue.size() != 0) {
-            System.out.println("Se ha atendido a " + this.customerQueue.poll());
+            System.out.println("Se ha atendido a " + this.customerQueue.poll().getName());
         } else {
             System.out.println("ERROR: No se pudo atender al cliente.\nMOTIVO: No hay clientes en fila.");
         }
