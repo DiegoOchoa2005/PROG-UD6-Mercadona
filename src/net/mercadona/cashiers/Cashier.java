@@ -17,7 +17,6 @@ public class Cashier {
 
     public boolean closeBox() {
         if (customerQueue.size() != 0) {
-            System.out.println("ERROR: No se pudo cerrar la caja.\nMOTIVO: hay clientes esperando en la fila.");
             return this.isBoxOpen = true;
         } else {
             return this.isBoxOpen = false;
@@ -52,7 +51,7 @@ public class Cashier {
             for (int i = 0; i < customerQueue.size(); i++) {
                 customerName += "\tCliente Nº " + (i + 1) + ":\n" + customerList.poll() + "\n";
             }
-            
+
             return customerName;
         } else {
             return "\tNo hay clientes esperando";

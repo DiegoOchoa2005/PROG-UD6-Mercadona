@@ -11,16 +11,14 @@ public class Customer {
     private String bloodType;
     private boolean isLatam;
 
-    private String[] bloodTypes = { "A+", "O+", "B+", "AB+", "A-", "O-", "B-", "AB-" };
-
     private Stack<String> shoppingBasket = new Stack<>();
 
     public Customer() {
-        this.name = this.randomCustomerName();
-        this.dni = this.getDni();
-        this.phoneNum = this.getPhoneNum();
-        this.bloodType = this.getBloodType();
-        this.isLatam = this.isLatam();
+        this.name = RandomElements.generateRandomName();
+        this.dni = RandomElements.generateRandomDni();
+        this.phoneNum = RandomElements.generateRandomPhoneNum();
+        this.bloodType = RandomElements.generateRandomBloodType();
+        this.isLatam = RandomElements.isLatam();
     }
 
     public void fillBasket() {
@@ -47,38 +45,9 @@ public class Customer {
         return this.name;
     }
 
-    private String randomCustomerName() {
-        return RandomElements.randomName();
-    }
-
-    private String getDni() {
-        String letters = "TRWAGMYFPDXBNJZSQVHLCKE";
-        int numDni = (int) (Math.random() * (90000000 - 10000000) + 10000000);
-        int rest = numDni % 23;
-        String letraDni = String.valueOf(letters.charAt(rest));
-
-        return numDni + letraDni;
-    }
-
-    private String getPhoneNum() {
-        String numPhone = String.valueOf((int) (Math.random() * (699999999 - 600000000) + 600000000));
-        return "+34 " + numPhone;
-    }
-
-    private String getBloodType() {
-        int bloodSelected = (int) (Math.random() * (bloodTypes.length + 1) - 1);
-        return bloodTypes[bloodSelected];
-    }
-
-    // Estoy practicando pa' trabajar en el tranvia
-    public boolean isLatam() {
-        int latamSelector = (int) (Math.random() * (10 - 1) + 1);
-        return latamSelector == 1 ? true : false;
-    }
-
     @Override
     public String toString() {
-        String confirmLatam = this.isLatam == true ? "si, por desgracia" : "no, se salva";
+        String confirmLatam = this.isLatam ? "si, por desgracia" : "no, se salva";
         return "===================================\n" +
                 "* Nombre:" + this.name + "\n" +
                 "* DNI:" + this.dni + "\n" +
