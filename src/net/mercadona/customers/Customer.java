@@ -47,7 +47,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        String confirmLatam = this.isLatam == true ? "si, por desgracia" : "no, se salva";
+        String confirmLatam = this.isLatam ? "si, por desgracia" : "no, se salva";
         return "===================================\n" +
                 "* Nombre:" + this.name + "\n" +
                 "* DNI:" + this.dni + "\n" +

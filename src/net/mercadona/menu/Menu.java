@@ -16,30 +16,39 @@ public class Menu {
 
     public static void showMainMenu() {
         System.out.println("""
-            1. Abrir caja
-            2. Añadir un nuevo cliente a la cola
-            3. Atender un cliente
-            4. Ver clientes pendientes
-            5. Cerrar supermercado
-            """);
+                1. Abrir caja
+                2. Añadir un nuevo cliente a la cola
+                3. Atender un cliente
+                4. Ver clientes pendientes
+                5. Cerrar supermercado
+                """);
     }
 
     public static void optionMenu(String userOption) {
-        if (userOption.equals("1")) {
-            cashier.openBox();
-        } else if (userOption.equals("2")) {
-            cashier.addClientToQueue();
-        } else if (userOption.equals("3")) {
-            cashier.serveClient();
-        } else if (userOption.equals("4")) {
-            cashier.viewPendingClients();
-        } else if (userOption.equals("5")) {
-            if (cashier.closeBox()) {
-            } else {
-                keepAsking = false;
-            }
-        } else {
-            System.out.println("Opción invalida.");
+        switch (userOption) {
+            case "1":
+                cashier.openBox();
+                break;
+            case "2":
+                cashier.addClientToQueue();
+                break;
+            case "3":
+                cashier.serveClient();
+                break;
+            case "4":
+                cashier.viewPendingClients();
+                break;
+            case "5":
+                if (cashier.closeBox()) {
+                    System.out.println("ERROR: No se pudo cerrar la caja.\nMOTIVO: hay clientes esperando en la fila.");
+                } else {
+                    keepAsking = false;
+                }
+                break;
+
+            default:
+                System.out.println("Opción invalida.");
+                break;
         }
     }
 }
