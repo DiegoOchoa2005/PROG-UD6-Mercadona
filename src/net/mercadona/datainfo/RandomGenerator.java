@@ -1,6 +1,6 @@
 package net.mercadona.datainfo;
 
-public class RandomElements {
+public class RandomGenerator {
     private static String[] productList = { "Tomate", "Huevo", "Arroz", "Pasta", "Leche", "Aceituna", "Ron",
             "Gofio Palmero", "Yogurt", "Galletas", "San Jacobo", "Almendrados", "Pechuga de Pavo", "Coca-cola",
             "Caraotas" };

@@ -2,7 +2,7 @@ package net.mercadona.customers;
 
 import java.util.Stack;
 
-import net.mercadona.datainfo.RandomElements;
+import net.mercadona.datainfo.RandomGenerator;
 
 public class Customer {
     private String name;
@@ -14,18 +14,18 @@ public class Customer {
     private Stack<String> shoppingBasket = new Stack<>();
 
     public Customer() {
-        this.name = RandomElements.generateRandomName();
-        this.dni = RandomElements.generateRandomDni();
-        this.phoneNum = RandomElements.generateRandomPhoneNum();
-        this.bloodType = RandomElements.generateRandomBloodType();
-        this.isLatam = RandomElements.isLatam();
+        this.name = RandomGenerator.generateRandomName();
+        this.dni = RandomGenerator.generateRandomDni();
+        this.phoneNum = RandomGenerator.generateRandomPhoneNum();
+        this.bloodType = RandomGenerator.generateRandomBloodType();
+        this.isLatam = RandomGenerator.isLatam();
     }
 
     public void fillBasket() {
         int numOfProducts = (int) (Math.random() * (20 - 2) + 2);
 
         for (int i = 0; i < numOfProducts; i++) {
-            shoppingBasket.push(RandomElements.randomProduct());
+            shoppingBasket.push(RandomGenerator.randomProduct());
         }
     }
 
