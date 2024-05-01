@@ -3,6 +3,7 @@ package net.mercadona.customers;
 import java.util.Stack;
 
 import net.mercadona.datainfo.RandomGenerator;
+import net.mercadona.decorationstuff.ConsoleColors;
 
 public class Customer {
     private String name;
@@ -33,11 +34,11 @@ public class Customer {
         if (this.shoppingBasket.size() != 0) {
             String productName = "";
             for (int i = 0; i < shoppingBasket.size(); i++) {
-                productName += "\tNombre del producto Nº" + (i + 1) + ": " + this.shoppingBasket.get(i) + "\n";
+                productName += "\t\tNombre del producto Nº" + (i + 1) + ": " + this.shoppingBasket.get(i) + "\n";
             }
             return productName;
         } else {
-            return "\tNo hay productos en la cesta.";
+            return ConsoleColors.changeToOrange("\tNo hay productos en la cesta.");
         }
     }
 
@@ -47,16 +48,30 @@ public class Customer {
 
     @Override
     public String toString() {
-        String confirmLatam = this.isLatam ? "si, por desgracia" : "no, se salva";
-        return "===================================\n" +
-                "* Nombre:" + this.name + "\n" +
-                "* DNI:" + this.dni + "\n" +
-                "* Numero de telefono:" + this.phoneNum + "\n" +
-                "* Tipo de sangre:" + this.bloodType + "\n" +
-                "* ¿Es latino?:" + confirmLatam + "\n" +
-                "* Total de productos:" + shoppingBasket.size() + "\n" +
-                "* Lista de articulos en la cesta:\n" + this.showProducts() +
-                "\n===================================\n";
+        String confirmLatam = this.isLatam ? ConsoleColors.changeToRed("si, por desgracia") : "no, se salva";
+        return ConsoleColors.changeToBoldCyan("\t===================================\n") +
+                ConsoleColors.changeToBlue("\t* Nombre: ") + ConsoleColors.getAnsiGreen() + 
+                this.name + "\n" +
+
+                ConsoleColors.changeToBlue("\t* DNI: ") + ConsoleColors.getAnsiGreen() + 
+                this.dni + "\n" +
+
+                ConsoleColors.changeToBlue("\t* Numero de telefono: ") + ConsoleColors.getAnsiGreen() + 
+                this.phoneNum + "\n" +
+
+                ConsoleColors.changeToBlue("\t* Tipo de sangre: ") + ConsoleColors.getAnsiGreen() + 
+                this.bloodType + "\n" +
+
+                ConsoleColors.changeToBlue("\t* ¿Es latino?: ") + ConsoleColors.getAnsiGreen() + 
+                confirmLatam + "\n" +
+
+                ConsoleColors.changeToBlue("\t* Total de productos: ") + ConsoleColors.getAnsiGreen() + 
+                shoppingBasket.size() + "\n" +
+
+                ConsoleColors.changeToBlue("\t* Lista de articulos en la cesta:\n") + 
+                ConsoleColors.getAnsiYellow() + this.showProducts() +
+                
+                ConsoleColors.changeToBoldCyan("\n\t===================================\n");
     }
 
 }
