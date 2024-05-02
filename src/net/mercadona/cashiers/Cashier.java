@@ -26,9 +26,7 @@ public class Cashier {
 
     public void addClientToQueue() {
         if (isBoxOpen) {
-            Customer newCustomer = new Customer();
-            newCustomer.fillBasket();
-            this.customerQueue.add(newCustomer);
+            this.customerQueue.add(new Customer());
             this.totalCustomers++;
         } else {
             System.out.println(ConsoleColors.changeToBoldRed("\nERROR: No se pudo añadir al cliente.") +
