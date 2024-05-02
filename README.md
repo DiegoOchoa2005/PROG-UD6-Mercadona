@@ -1,18 +1,10 @@
-## Getting Started
+# Supermercado Spar
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este proyecto ha sido realizado por los alumnos del CFGS 1er DAM:
 
-## Folder Structure
+Alvaro Negrin Hernández
+Diego Andrés Ochoa Morales
 
-The workspace contains two folders by default, where:
+Este programa es realizado a petición de la empresa de supermercados LIDEL con el fin de realizar una simulación de una de sus cajas mediante un menu por consola, en el cual se podrían realizar varias acciones como por ejemplo añadir un cliente a la fila.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Para saber como utilizar el programa con el Manual de usuario haga click [aqui](./docs/USER_MANUAL.md)
