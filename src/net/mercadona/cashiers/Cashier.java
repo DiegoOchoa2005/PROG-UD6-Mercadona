@@ -30,24 +30,30 @@ public class Cashier {
 
     public void addClientToQueue() {
         if (isBoxOpen) {
-            this.customerQueue.add(new Customer());
+            Customer newCustomer = new Customer();
+            this.customerQueue.add(newCustomer);
             this.totalCustomers++;
+
+            System.out.println(ConsoleColors.changeToBoldGreen("\nOperación exitosa ") +
+                    ConsoleColors.changeToYellow("\nSe ha añadido a la cola a ") +
+                    ConsoleColors.getAnsiOrange() + newCustomer.getName() + ConsoleColors.getAnsiReset());
+
         } else {
             System.out.println(ConsoleColors.changeToBoldRed("\nERROR: No se pudo añadir al cliente.") +
-            ConsoleColors.changeToBoldOrange("\nMOTIVO: ") + 
-            ConsoleColors.changeToYellow("La caja esta cerrada.\n"));
+                    ConsoleColors.changeToBoldOrange("\nMOTIVO: ") +
+                    ConsoleColors.changeToYellow("La caja esta cerrada.\n"));
         }
     }
 
     public void serveClient() {
         if (this.customerQueue.size() != 0) {
-            System.out.println(ConsoleColors.changeToBoldGreen("\nOperación exitosa ") + 
-            ConsoleColors.changeToYellow("\nSe ha atendido a ") + 
-            ConsoleColors.getAnsiOrange() + this.customerQueue.poll().getName() + ConsoleColors.getAnsiReset());
+            System.out.println(ConsoleColors.changeToBoldGreen("\nOperación exitosa ") +
+                    ConsoleColors.changeToYellow("\nSe ha atendido a ") +
+                    ConsoleColors.getAnsiOrange() + this.customerQueue.poll().getName() + ConsoleColors.getAnsiReset());
         } else {
             System.out.println(ConsoleColors.changeToBoldRed("\nERROR: No se pudo atender al cliente.") +
-            ConsoleColors.changeToBoldOrange("\nMOTIVO: ") + 
-            ConsoleColors.changeToYellow("No hay clientes en fila.\n"));
+                    ConsoleColors.changeToBoldOrange("\nMOTIVO: ") +
+                    ConsoleColors.changeToYellow("No hay clientes en fila.\n"));
         }
     }
 
@@ -58,8 +64,9 @@ public class Cashier {
             String customerName = "";
 
             for (int i = 0; i < customerQueue.size(); i++) {
-                customerName += ConsoleColors.changeToYellow("\t Cliente Nº ") + 
-                ConsoleColors.getAnsiYellow() + (i + 1) + ":\n" + ConsoleColors.getAnsiReset() + customerList.poll() + "\n";
+                customerName += ConsoleColors.changeToYellow("\t Cliente Nº ") +
+                        ConsoleColors.getAnsiYellow() + (i + 1) + ":\n" + ConsoleColors.getAnsiReset()
+                        + customerList.poll() + "\n";
             }
 
             return customerName;
@@ -75,10 +82,10 @@ public class Cashier {
     @Override
     public String toString() {
         return ConsoleColors.changeToBoldBlue("===================================\n") +
-                ConsoleColors.changeToCyan("* Número de caja: ") + 
+                ConsoleColors.changeToCyan("* Número de caja: ") +
                 ConsoleColors.getAnsiGreen() + this.CASHIER_BOX_NUM + ConsoleColors.getAnsiReset() + "\n" +
 
-                ConsoleColors.changeToCyan("* Total de clientes: ") + 
+                ConsoleColors.changeToCyan("* Total de clientes: ") +
                 ConsoleColors.getAnsiGreen() + this.totalCustomers + ConsoleColors.getAnsiReset() + "\n" +
 
                 ConsoleColors.changeToCyan("* Clientes en la fila:\n") + "\n" + this.showCustomer() +
