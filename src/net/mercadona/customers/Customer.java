@@ -20,6 +20,7 @@ public class Customer {
         this.phoneNum = RandomGenerator.generateRandomPhoneNum();
         this.bloodType = RandomGenerator.generateRandomBloodType();
         this.isLatam = RandomGenerator.isLatam();
+        this.fillBasket();
     }
 
     public void fillBasket() {
