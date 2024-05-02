@@ -7,10 +7,14 @@ import net.mercadona.customers.Customer;
 import net.mercadona.decorationstuff.ConsoleColors;
 
 public class Cashier {
-    private int cashierBoxNum = 1;
+    private final int CASHIER_BOX_NUM = 1;
     private int totalCustomers = 0;
     private boolean isBoxOpen = false;
     private Queue<Customer> customerQueue = new LinkedList<Customer>();
+
+    public boolean isBoxOpen() {
+        return this.isBoxOpen;
+    }
 
     public boolean openBox() {
         return this.isBoxOpen = true;
@@ -72,7 +76,7 @@ public class Cashier {
     public String toString() {
         return ConsoleColors.changeToBoldBlue("===================================\n") +
                 ConsoleColors.changeToCyan("* Número de caja: ") + 
-                ConsoleColors.getAnsiGreen() + this.cashierBoxNum + ConsoleColors.getAnsiReset() + "\n" +
+                ConsoleColors.getAnsiGreen() + this.CASHIER_BOX_NUM + ConsoleColors.getAnsiReset() + "\n" +
 
                 ConsoleColors.changeToCyan("* Total de clientes: ") + 
                 ConsoleColors.getAnsiGreen() + this.totalCustomers + ConsoleColors.getAnsiReset() + "\n" +

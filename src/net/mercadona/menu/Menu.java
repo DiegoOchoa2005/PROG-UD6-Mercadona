@@ -32,7 +32,12 @@ public class Menu {
     public static void optionMenu(String userOption) {
         switch (userOption) {
             case "1":
-                cashier.openBox();
+                if (!cashier.isBoxOpen()) {
+                    cashier.openBox();
+                    System.out.println(ConsoleColors.changeToBoldGreen("¡Caja abierta!"));
+                } else {
+                    System.out.println(ConsoleColors.changeToBoldRed("¡La caja ya esta abierta!"));
+                }
                 break;
             case "2":
                 cashier.addClientToQueue();
