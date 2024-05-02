@@ -5,7 +5,8 @@ public class RandomGenerator {
             "Gofio Palmero", "Yogurt", "Galletas", "San Jacobo", "Almendrados", "Pechuga de Pavo", "Coca-cola",
             "Caraotas" };
 
-    private static final String[] NAME_LIST = { "Ryuko Matoi", "Satsuki Kiryüin", "Mako Makanshoku", "PunPun", "Rias Gremory",
+    private static final String[] NAME_LIST = { "Ryuko Matoi", "Satsuki Kiryüin", "Mako Makanshoku", "PunPun",
+            "Rias Gremory",
             "Kokichi Ouma", "Enoshima Junko", "Nagito Komaeda", "Aqua", "Megumin", "Lalatina Darkness",
             "Kumagawa Misogi", "Ochako Uraraka", "Natsu Dragneel", "Tatsumaki", "Fubuki", "Archer", "Shouko Nishimiya",
             "Araragi Koyomi", "Vivy", "Kirei Kotomine" };
@@ -23,10 +24,10 @@ public class RandomGenerator {
     }
 
     public static String generateRandomDni() {
-        String letters = "TRWAGMYFPDXBNJZSQVHLCKE";
+        final String LETTERS = "TRWAGMYFPDXBNJZSQVHLCKE";
         int numDni = (int) (Math.random() * (90000000 - 10000000) + 10000000);
         int rest = numDni % 23;
-        String dniLetter = String.valueOf(letters.charAt(rest));
+        String dniLetter = String.valueOf(LETTERS.charAt(rest));
 
         return numDni + dniLetter;
     }
