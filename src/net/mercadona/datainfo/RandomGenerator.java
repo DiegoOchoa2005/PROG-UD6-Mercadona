@@ -1,25 +1,25 @@
 package net.mercadona.datainfo;
 
 public class RandomGenerator {
-    private static String[] productList = { "Tomate", "Huevo", "Arroz", "Pasta", "Leche", "Aceituna", "Ron",
+    private static final String[] PRODUCT_LIST = { "Tomate", "Huevo", "Arroz", "Pasta", "Leche", "Aceituna", "Ron",
             "Gofio Palmero", "Yogurt", "Galletas", "San Jacobo", "Almendrados", "Pechuga de Pavo", "Coca-cola",
             "Caraotas" };
 
-    private static String[] nameList = { "Ryuko Matoi", "Satsuki Kiryüin", "Mako Makanshoku", "PunPun", "Rias Gremory",
+    private static final String[] NAME_LIST = { "Ryuko Matoi", "Satsuki Kiryüin", "Mako Makanshoku", "PunPun", "Rias Gremory",
             "Kokichi Ouma", "Enoshima Junko", "Nagito Komaeda", "Aqua", "Megumin", "Lalatina Darkness",
             "Kumagawa Misogi", "Ochako Uraraka", "Natsu Dragneel", "Tatsumaki", "Fubuki", "Archer", "Shouko Nishimiya",
             "Araragi Koyomi", "Vivy", "Kirei Kotomine" };
 
-    private static String[] bloodTypes = { "A+", "O+", "B+", "AB+", "A-", "O-", "B-", "AB-" };
+    private static final String[] BLOOD_TYPES = { "A+", "O+", "B+", "AB+", "A-", "O-", "B-", "AB-" };
 
     public static String randomProduct() {
-        int indexProduct = (int) (Math.random() * ((productList.length + 1) - 1));
-        return productList[indexProduct];
+        int indexProduct = (int) (Math.random() * ((PRODUCT_LIST.length + 1) - 1));
+        return PRODUCT_LIST[indexProduct];
     }
 
     public static String generateRandomName() {
-        int indexName = (int) (Math.random() * ((productList.length + 1) - 1));
-        return nameList[indexName];
+        int indexName = (int) (Math.random() * ((PRODUCT_LIST.length + 1) - 1));
+        return NAME_LIST[indexName];
     }
 
     public static String generateRandomDni() {
@@ -37,8 +37,8 @@ public class RandomGenerator {
     }
 
     public static String generateRandomBloodType() {
-        int bloodSelected = (int) (Math.random() * (bloodTypes.length + 1) - 1);
-        return bloodTypes[bloodSelected];
+        int bloodSelected = (int) (Math.random() * (BLOOD_TYPES.length + 1) - 1);
+        return BLOOD_TYPES[bloodSelected];
     }
 
     // Estamos practicando pa' trabajar en el tranvia
