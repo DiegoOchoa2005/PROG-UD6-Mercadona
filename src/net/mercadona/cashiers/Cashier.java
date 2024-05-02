@@ -12,6 +12,10 @@ public class Cashier {
     private boolean isBoxOpen = false;
     private Queue<Customer> customerQueue = new LinkedList<Customer>();
 
+    public boolean isBoxOpen() {
+        return this.isBoxOpen;
+    }
+
     public boolean openBox() {
         return this.isBoxOpen = true;
     }
