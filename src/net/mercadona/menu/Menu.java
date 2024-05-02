@@ -16,17 +16,17 @@ public class Menu {
     }
 
     public static void showMainMenu() {
-        String borderMenu = "**************************************";
-        String optionsMenu = """
+        final String BORDER_MENU = "**************************************";
+        final String OPTIONS_MENU = """
                 * 1. Abrir caja
                 * 2. Añadir un nuevo cliente a la cola
                 * 3. Atender un cliente
                 * 4. Ver clientes pendientes
                 * 5. Cerrar supermercado
                 """;
-        System.out.println(ConsoleColors.changeToBoldRed("\n" + borderMenu + "\n") + ConsoleColors.changeToYellow(optionsMenu)
-        + ConsoleColors.changeToBoldRed(borderMenu + "\n")
-        );
+        System.out.println(
+                ConsoleColors.changeToBoldRed("\n" + BORDER_MENU + "\n") + ConsoleColors.changeToYellow(OPTIONS_MENU)
+                        + ConsoleColors.changeToBoldRed(BORDER_MENU + "\n"));
     }
 
     public static void optionMenu(String userOption) {
@@ -51,8 +51,8 @@ public class Menu {
             case "5":
                 if (cashier.closeBox()) {
                     System.out.println(ConsoleColors.changeToBoldRed("\nERROR: No se pudo cerrar la caja.") +
-                    ConsoleColors.changeToBoldOrange("\nMOTIVO: ") + 
-                    ConsoleColors.changeToYellow("Hay clientes en fila.\n"));
+                            ConsoleColors.changeToBoldOrange("\nMOTIVO: ") +
+                            ConsoleColors.changeToYellow("Hay clientes en fila.\n"));
                 } else {
                     System.out.println(ConsoleColors.changeToYellow("Finalizando Programa..."));
                     System.out.println(ConsoleColors.changeToBoldGreen("¡Muchas gracias por usar nuestro menu!"));
